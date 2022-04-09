@@ -46,21 +46,18 @@ ADD CONSTRAINT owner_key
 /* Create a table named vets */
 
 CREATE TABLE vets (
-  id serial PRIMARY KEY,
-  name TEXT,
-  age INT,
-  date_of_graduation DATE
-);
+id int NOT NULL IDENTITY(1,1),
+name varchar(255),
+age int,
+date_of_graduation date,
+PRIMARY KEY (id) );
 
 /* Many-to-many relationship between the tables species and vets */
 
 CREATE TABLE specializations (
-  vet_id INT,
-  species_id INT,
-  FOREIGN KEY (vet_id) REFERENCES vets(id),
-  FOREIGN KEY (species_id) REFERENCES species (id),
-  PRIMARY KEY (vet_id, species_id)
-);
+  species_id int,
+  vet_id int
+  );
 
 /* There is a many-to-many relationship between the tables animals and vets */
 
