@@ -42,3 +42,32 @@ ADD COLUMN owner_id INT,
 ADD CONSTRAINT owner_key
   FOREIGN KEY (owner_id)
     REFERENCES owners(id);
+
+/* Create a table named vets */
+
+CREATE TABLE vets (
+  id serial PRIMARY KEY,
+  name TEXT,
+  age INT,
+  date_of_graduation DATE
+);
+
+/* Many-to-many relationship between the tables species and vets */
+
+CREATE TABLE specializations (
+  vet_id INT,
+  species_id INT,
+  FOREIGN KEY (vet_id) REFERENCES vets(id),
+  FOREIGN KEY (species_id) REFERENCES species (id),
+  PRIMARY KEY (vet_id, species_id)
+);
+
+/* There is a many-to-many relationship between the tables animals and vets */
+
+CREATE TABLE visits (
+  animal_id INT,
+  vet_id INT,
+  visit_date DATE,
+  FOREIGN KEY (animal_id) REFERENCES animals (id),
+  FOREIGN KEY (vet_id) REFERENCES vets (id)
+);
