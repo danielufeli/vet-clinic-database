@@ -14,11 +14,17 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Authors
 
-👤 **Author1**
+👤 **Daniel Ufeli**
 
 - GitHub: [@githubhandle](https://github.com/danielufeli)
 - Twitter: [@twitterhandle](https://twitter.com/danielufeli)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/danielcode)
+
+**Mauro Vasconcelos**
+
+- GitHub: [@vanillainanutshell](https://github.com/vanillainanutshell)
+- LinkedIn: [Mauro Vasconcelos](https://linkedin.com/in/vanillainanutshell)
+
 
 ## 🤝 Contributing
 
