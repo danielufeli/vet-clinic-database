@@ -9,10 +9,12 @@ CREATE TABLE medical_histories (
   id INT GENERATED ALWAYS AS IDENTITY,
   admitted_at TIMESTAMP NOT NULL,
   patient_id INT NOT NULL REFERENCES patients(id),
+  CONSTRAINT patient_fk
+  FOREIGN KEY(patient_id) REFERENCES patients(id);  
   status VARCHAR(50),
   PRIMARY KEY(id)
 );
-CREATE INDEX medical_histories_asc ON medical_histories (id ASC);
+CREATE INDEX ON medical_histories (id ASC);
 
 CREATE TABLE invoices (
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -21,8 +23,10 @@ CREATE TABLE invoices (
   payed_at TIMESTAMP NOT NULL,
   PRIMARY KEY(id),
   medical_history_id INT NOT NULL REFERENCES medical_histories(id)
+  CONSTRAINT medical_histories_fk
+  FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id);  
 );
-CREATE INDEX invoices_id_asc ON invoices (id ASC);
+CREATE INDEX ON invoices (id ASC);
 
 
 CREATE TABLE treatments (
@@ -52,3 +56,5 @@ CREATE TABLE medical_histories_treatments (
   FOREIGN KEY (treatment_id) REFERENCES treatments(id),
   PRIMARY KEY(medical_history_id, treatment_id)
 );
+CREATE INDEX ON medical_histories_has_treatments (medical_history_id);
+CREATE INDEX ON medical_histories_has_treatments (treatment_id);
