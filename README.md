@@ -2,6 +2,8 @@
 
 > This is a Database for a Vet Clinic built with sql using PostgresSql.
 
+![Diagram](/vet_diagram.jpg)
+
 
 ## Getting Started
 
